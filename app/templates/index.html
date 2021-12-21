@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>Search Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery !-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+    <!-- jQuery UI !-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- search -->
+    <div class="container-fluid">
+        <h2>Search Example Using Jquery & Django</h2><hr>
+        <div class="header-search">
+            <form action="/search/" method="post">
+                {% csrf_token %}
+                <input id="query" name="query" class="input search-input" type="text" placeholder="enter your keyword">
+                <input type="submit" class="btn btn-primary btn-sm" id="search-btn">
+            </form>
+        </div><hr>
+        <h2>Search City and Country</h2><hr>
+        <div class="header-search">
+            <form action="/search_city_country/" method="post">
+                {% csrf_token %}
+                <input id="query_cc" name="querycc" class="input search-input" type="text" placeholder="enter your keyword city or country">
+                <input type="submit" class="btn btn-primary btn-sm" id="search-btn2">
+            </form>
+        </div><hr>
+    </div>
+
+    <script>
+
+        $(function() {
+          $("#query").autocomplete({
+            source: "/search/",
+            select: function (event, ui) { //item selected
+              AutoCompleteSelectHandler(event, ui)
+            },
+            minLength: 1,
+          });
+        });
+      
+        function AutoCompleteSelectHandler(event, ui)
+        {
+          var selectedObj = ui.item;
+        }
+      
+    </script>
+    <script>
+
+        $(function() {
+          $("#query_cc").autocomplete({
+            source: "/search_city_country/",
+            select: function (event, ui) { //item selected
+              AutoCompleteSelectHandler(event, ui)
+            },
+            minLength: 1,
+          });
+        });
+
+        function AutoCompleteSelectHandler(event, ui)
+        {
+          var selectedObj = ui.item;
+        }
+
+    </script>
+
+</body>
+</html>
