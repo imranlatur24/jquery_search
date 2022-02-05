@@ -15,21 +15,35 @@
     <!-- search -->
     <div class="container-fluid">
         <h2>Search Example Using Jquery & Django</h2><hr>
-        <div class="header-search">
+        <!-- <div class="header-search">
             <form action="/search/" method="post">
                 {% csrf_token %}
                 <input id="query" name="query" class="input search-input" type="text" placeholder="enter your keyword">
                 <input type="submit" class="btn btn-primary btn-sm" id="search-btn">
             </form>
-        </div><hr>
+        </div><hr> -->
+        <div class="container-fluid"></div>
+          <form class="d-flex"  action="/search_city_country/" method="post">
+            <input class="form-control me-2" id="query" name="query" type="search"
+            placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" id="search-btn">Search</button>
+          </form>
+          </div>
+        
         <h2>Search City and Country</h2><hr>
-        <div class="header-search">
+        <form class="d-flex"  action="/search_city_country/" method="post">
+          <input class="form-control me-2" id="query_cc" name="querycc" type="search"
+           placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+        <!-- <div class="header-search">
             <form action="/search_city_country/" method="post">
                 {% csrf_token %}
                 <input id="query_cc" name="querycc" class="input search-input" type="text" placeholder="enter your keyword city or country">
                 <input type="submit" class="btn btn-primary btn-sm" id="search-btn2">
             </form>
-        </div><hr>
+        </div><hr> -->
     </div>
 
     <script>
